@@ -1,3 +1,3 @@
 # heg-py-graphtheory
 
-Simple python script for solving graph coloring.
+Simple graph coloring algorithm written in Python.
