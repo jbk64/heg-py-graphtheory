@@ -61,7 +61,6 @@ def color_graph():
                 color_attributed = True
 
         vertex_index = vertex_index + 1
-    return colors
 
 
 def create_solution_file(solution):
