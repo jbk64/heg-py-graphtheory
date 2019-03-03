@@ -29,12 +29,12 @@ for i in range(n):
 fichierColoration=sys.argv[2]
 f_certif=open(fichierColoration,'r')
 coloration=f_certif.readline().split()
-
 for i in range(n):
     coloration[i]=int(coloration[i])
 print("Coloration proposée: ",coloration)
 couleursUtilisees=[0 for x in range(n)]
-for i in range(n-1):
+
+for i in range(n):
     if coloration[i]<1 or coloration[i]>n and not isinstance(coloration[i], int):
         print("Attention: la coloration doit utiliser uniquement des couleurs entières entre 1 et",n,".")
         exit(0)
@@ -50,4 +50,4 @@ for i in range(n):
     if couleursUtilisees[i]==1:
         nbCouleurUtilisees=nbCouleurUtilisees+1
 
-print("\nColoration ADMISSIBLE en",nbCouleurUtilisees+1,"couleurs.")
+print("\nColoration ADMISSIBLE en",nbCouleurUtilisees,"couleurs.")

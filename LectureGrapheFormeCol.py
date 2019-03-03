@@ -32,16 +32,17 @@ colors = [0]*n
 # we attribute the fiest color to the virst vertex
 colors[0] = 1
 
+
 # returns the colors of neighbor vertices
 def get_neighbor_colors(index):
     neighbor_colors = []
     i = 0
     for adjacency in matrix[index]:
-        print("checking adjacency")
+        print("Checkin neighborhood of vertex {}".format(i))
         if adjacency is 1:
-            print("Found adjacency")
+            print("Found a neighbor")
             neighbor_colors.append(colors[i])
-            i = i + 1
+        i = i + 1
     return neighbor_colors
 
 
@@ -53,11 +54,11 @@ def color_graph():
         color_attributed = False
         color_index = 1
         while color_attributed is False:
-            if color_index not in neighbor_colors:
+            if color_index in neighbor_colors:
+                color_index = color_index + 1
+            else:
                 colors[vertex_index] = color_index
                 color_attributed = True
-            else:
-                color_index = color_index + 1
 
         vertex_index = vertex_index + 1
     return colors
