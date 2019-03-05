@@ -1,4 +1,4 @@
-import sys, random, os
+import sys, os
 
 impression=0
 
@@ -20,34 +20,29 @@ for ligne in f:
         A[int(ligneSep[1])-1][int(ligneSep[2])-1]=1
         A[int(ligneSep[2])-1][int(ligneSep[1])-1]=1
 
+print("Nombre de sommets: ",n)
+print("Nomber d'arêtes: ",m)
+# print("Matrice d'adjacence:")
+# print(A)
 f.close()
 
-# Mon code :
-matrix = A
-print(matrix)
+######################################################
+# @author Jack Barker
+######################################################
 
-# array of attributed colors in order of vertex
-colors = [0]*n
-
-# we attribute the fiest color to the virst vertex
-colors[0] = 1
-
-
-# returns the colors of neighbor vertices
+# Retourne les couleurs des sommets du voisinage d'un sommet
+# Le paramètre index est l'index dans la matrice du sommet dont on veut les couleurs voisines
 def get_neighbor_colors(index):
     neighbor_colors = []
     i = 0
     for adjacency in matrix[index]:
-        print("Checkin neighborhood of vertex {}".format(i))
         if adjacency is 1:
-            print("Found a neighbor")
             neighbor_colors.append(colors[i])
         i = i + 1
     return neighbor_colors
 
-
+# Fonction principale de l'algorithme
 def color_graph():
-    # while number of colors attributed < number of vertices
     vertex_index = 1
     while vertex_index < n:
         neighbor_colors = get_neighbor_colors(vertex_index)
@@ -62,7 +57,7 @@ def color_graph():
 
         vertex_index = vertex_index + 1
 
-
+# Créé le fichier certificat
 def create_solution_file(solution):
     solution_filename = sys.argv[1].split("/")[1].split(".")[0] + "_certificat.txt"
     solution_file_path = os.path.join("solutions/", solution_filename)
@@ -72,8 +67,16 @@ def create_solution_file(solution):
 
     solution_file.close()
 
+# La matrice d'adjacence
+matrix = A
 
-# flux principal
+# On donne la couleur 0 à tous les sommets
+colors = [0]*n
+
+# On donne la couleur 1 au premier sommet
+colors[0] = 1
+
+# Appel des fonctions
 color_graph()
 create_solution_file(colors)
 
