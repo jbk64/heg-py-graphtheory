@@ -10,12 +10,12 @@ Les fichiers `.txt` dans le répertoire `solutions` contiennent la coloration pr
 Le code réalisé se trouve dans le fichier `LectureGrapheFormeCol.py` à partir de la ligne 33.
 
 ## Algorithme utilisé
-Soit matrix la matrice d’adjacence stockée en mémoire d’après le fichier .col.
+Soit `matrix` la matrice d’adjacence stockée en mémoire d’après le fichier .col.
 
-Soit n le nombre de sommets dans le graphe.
+Soit `n` le nombre de sommets dans le graphe.
 
- 1. On crée un tableau de taille n qui stocke les couleurs attribuées dans l’ordre des sommets dans matrix. Toutes les couleurs sont initialisées à 0 (absence de couleur). 
- 1. On attribue la première couleur (1) au premier sommet dans matrix.
+ 1. On crée un tableau de taille n qui stocke les couleurs attribuées dans l’ordre des sommets dans `matrix`. Toutes les couleurs sont initialisées à 0 (absence de couleur). 
+ 1. On attribue la première couleur (1) au premier sommet dans `matrix`.
 1. Tant qu’il reste des sommets non-traités dans matrix: 
 	1. On choisit le prochain sommet.
 	2.  On récupère les couleurs des sommets du voisinage dans une liste.
